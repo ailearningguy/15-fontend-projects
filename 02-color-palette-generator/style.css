@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(135deg, #5982c1, #83a8df);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 2px;
+  background-color: #3865aa;
+  border-radius: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#generator-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(30deg, #3865aa, #77029b);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 50px;
+  transition: box-shadow 0.3s ease, scale 0.4s ease;
+}
+
+#generator-btn:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.6);
+  scale: 101%;
+}
+
+#generator-btn:active {
+  scale: 95%;
+}
+
+.palette-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+}
+
+.color-box {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+.color-box:hover {
+  transform: translateY(-5px);
+}
+.color {
+  height: 120px;
+  cursor: pointer;
+}
+
+.color-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+}
+.hex-value {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.copy-btn {
+  cursor: pointer;
+  color: #005854;
+  transition: color 0.3s;
+}
+
+.copy-btn:hover {
+  color: #02c9bf;
+}
+
+@media screen and (max-width: 380px) {
+  #generator-btn {
+    align-self: center;
+  }
+  .palette-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  .color {
+    height: 100px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  #generator-btn {
+    align-self: center;
+  }
+  .palette-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  .color {
+    height: 110px;
+    cursor: pointer;
+  }
+}
