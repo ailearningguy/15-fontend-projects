@@ -1,8 +1,5 @@
 const generateBtn = document.getElementById("generator-btn");
 const paletteContainer = document.querySelector(".palette-container");
-const colorShow = document.getElementsByClassName("color");
-const hexValue = document.getElementsByClassName("hex-value");
-const copyBtn = document.getElementsByClassName("copy-btn");
 
 generateBtn.addEventListener("click", generatePalette);
 
@@ -23,8 +20,13 @@ function generatePalette() {
               content_copy
             </span>
           </div>`;
-    paletteContainer.appendChild(colorBox);
+    paletteContainer.appendChild(colorBox); // Thêm một colorBox vào paletteContainer
   }
+  const copyBtn = Array.from(document.querySelectorAll(".copy-btn"));
+  copyBtn.forEach((btn) => {
+    btn.addEventListener("click", copyClipboard);
+    console.log("đã add event listener");
+  });
 }
 
 function generateColor() {
@@ -32,9 +34,19 @@ function generateColor() {
   let color = "#";
   for (let i = 0; i < 6; i++) {
     let randomLetter = letters[Math.floor(Math.random() * letters.length)];
-    color = color + randomLetter;
+    color += randomLetter;
   }
   return color;
 }
-
+async function copyClipboard(event) {
+  const hexValue = event.target.previousElementSibling.textContent;
+  try {
+    await navigator.clipboard.writeText(hexValue); // Sao chép vào clipboard
+    alert("Đã copy: " + hexValue); // Thông báo thành công
+  } catch (err) {
+    console.error("Lỗi copy: ", err);
+    alert("Không thể copy, vui lòng thử lại.");
+  }
+  console.log(hexValue);
+}
 generatePalette();
