@@ -5,23 +5,21 @@ generateBtn.addEventListener("click", generatePalette);
 
 function generatePalette() {
   const colors = [];
-  paletteContainer.innerHTML = "";
   for (let i = 0; i < 5; i++) {
     let hex = generateColor();
-    let colorBox = document.createElement("div");
-    colorBox.classList.add("color-box");
-    colorBox.innerHTML = `<div class="color" style="background-color: ${hex}"></div>
-          <div class="color-info">
-            <span class="hex-value">${hex}</span>
-            <span
-              class="material-symbols-outlined copy-btn"
-              title="Copy to clipboard"
-            >
-              content_copy
-            </span>
-          </div>`;
-    paletteContainer.appendChild(colorBox); // Thêm một colorBox vào paletteContainer
+    colors.push(hex);
   }
+  const colorBoxes = document.querySelectorAll(".color-box");
+  colorBoxes.forEach((colorBox, index) => {
+    console.log(colorBox);
+    const colorDiv = colorBox.querySelector(".color");
+    colorDiv.style.backgroundColor = colors[index];
+    const colorInfo = colorBox.querySelector(".color-info");
+    colorInfo.querySelector(".hex-value").textContent = colors[index];
+    colorInfo
+      .querySelector(".copy-btn")
+      .addEventListener("click", copyClipboard);
+  });
   const copyBtn = Array.from(document.querySelectorAll(".copy-btn"));
   copyBtn.forEach((btn) => {
     btn.addEventListener("click", copyClipboard);
