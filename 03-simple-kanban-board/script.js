@@ -2,29 +2,25 @@ const toDoBox = document.getElementById("to-do");
 const inProgressBox = document.getElementById("in-progress");
 const doneBox = document.getElementById("done");
 
-console.log(typeof toDoBox, toDoBox);
-console.log(inProgressBox);
-console.log(doneBox);
+const itemsList = [...document.getElementsByClassName("item")];
 
-const itemsToDo = [...toDoBox.getElementsByClassName("item")];
-
-itemsToDo.forEach((element) => {
+itemsList.forEach((element) => {
   element.addEventListener("dragstart", dragHandler);
 });
 
-const itemsInProgress = [...inProgressBox.getElementsByClassName("item")];
-
-itemsInProgress.forEach((element) => {
-  element.addEventListener("dragstart", dragHandler);
-});
-
-const itemsDone = [...doneBox.getElementsByClassName("item")];
-
-itemsDone.forEach((element) => {
-  element.addEventListener("dragstart", dragHandler);
-});
+let itemSelected = null;
 
 function dragHandler(ev) {
-  const etarget = ev.target;
-  console.log(etarget);
+  itemSelected = ev.target;
 }
+
+const dropZone = [...document.querySelectorAll('.box[dropzone="true"]')];
+dropZone.forEach((element) => {
+  element.addEventListener("dragover", (ev) => {
+    ev.preventDefault();
+  });
+  element.addEventListener("drop", (ev) => {
+    ev.target.appendChild(itemSelected);
+    itemSelected = null;
+  });
+});
