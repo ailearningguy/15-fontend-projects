@@ -7,5 +7,79 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <h1>Expense Tracker</h1>
+      <div class="balance-box">
+        <p>Your Balance</p>
+        <h2>$2,898.00</h2>
+        <div id="income-info">
+          <p>Income</p>
+          <span class="in-out-number">$4,938.00</span>
+        </div>
+        <div id="expenses-info">
+          <p>Expenses</p>
+          <span class="in-out-number">$4,938.00</span>
+        </div>
+      </div>
+      <div id="transactions">
+        <p>Transactions</p>
+        <ul id="list-transactions">
+          <li class="item">
+            <span class="transacion-name">Buy Iphone 17 promax</span
+            ><span class="transaction-amount">$1,299.00</span>
+          </li>
+          <li class="item">
+            <span class="transacion-name">Buy Iphone 17 promax</span
+            ><span class="transaction-amount">$1,299.00</span>
+          </li>
+          <li class="item">
+            <span class="transacion-name">Buy Iphone 17 promax</span
+            ><span class="transaction-amount">$1,299.00</span>
+          </li>
+          <li class="item">
+            <span class="transacion-name">Buy Iphone 17 promax</span
+            ><span class="transaction-amount">$1,299.00</span>
+          </li>
+          <li class="item">
+            <span class="transacion-name">Buy Iphone 17 promax</span
+            ><span class="transaction-amount">$1,299.00</span>
+          </li>
+          <li class="item">
+            <span class="transacion-name">Buy Iphone 17 promax</span
+            ><span class="transaction-amount">$1,299.00</span>
+          </li>
+        </ul>
+      </div>
+      <div id="transaction-input">
+        <form id="transaction-form">
+          <p>Add Transaction</p>
+          <label for="description">Description</label>
+          <input
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Enter description..."
+          />
+          <label for="amount">Amount</label>
+          <input
+            type="radio"
+            name="type-transaction"
+            id="income"
+            value="income"
+          />
+          <label for="income">Income</label>
+          <input
+            type="radio"
+            name="type-transaction"
+            id="expense"
+            value="expense"
+          />
+          <label for="expense">Expense</label>
+          <input type="number" name="amount" id="amount" />
+          <button type="button" id="add-btn">Add Transaction</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
