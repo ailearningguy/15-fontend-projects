@@ -52,10 +52,60 @@ h1 {
   color: #3a003f;
   margin-bottom: 10px;
 }
+
 .item {
-  background-color: rgb(255, 182, 255);
   width: 100%;
   border-radius: 8px;
-  padding: 5px 8px;
+  padding: 5px 8px 5px 20px;
   cursor: grab;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+#to-do .item {
+  background-color: rgb(250, 147, 168);
+}
+#to-do .item::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: red;
+  z-index: 999;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+#in-progress .item {
+  background-color: rgb(136, 177, 246);
+}
+#in-progress .item::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: rgb(56, 45, 255);
+  z-index: 999;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+#done .item {
+  background-color: rgb(92, 245, 120);
+}
+#done .item::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: rgb(223, 255, 45);
+  z-index: 999;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translate(0, -50%);
 }
