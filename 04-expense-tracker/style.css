@@ -103,6 +103,13 @@ h1 {
   border-radius: 10px;
   transition: box-shadow 0.3s ease;
 }
+.transaction-amount::after,
+#income-number::after,
+#expense-number::after,
+#balance-number::after {
+  content: "đ";
+  margin-left: 1cap;
+}
 .item:hover {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
