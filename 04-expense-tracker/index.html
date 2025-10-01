@@ -129,21 +129,27 @@
             placeholder="Enter description..."
           />
           <label for="amount">Amount</label>
-          <input
-            type="radio"
-            name="type-transaction"
-            id="income"
-            value="income"
-          />
-          <label for="income">Income</label>
-          <input
-            type="radio"
-            name="type-transaction"
-            id="expense"
-            value="expense"
-          />
-          <label for="expense">Expense</label>
           <input type="number" name="amount" id="amount" />
+          <div id="type-trans">
+            <span
+              ><input
+                type="radio"
+                name="type-transaction"
+                id="income"
+                value="income"
+              />
+              <label for="income">Income</label></span
+            >
+            <span
+              ><input
+                type="radio"
+                name="type-transaction"
+                id="expense"
+                value="expense"
+              />
+              <label for="expense">Expense</label></span
+            >
+          </div>
         </form>
         <button type="button" id="add-btn">Add Transaction</button>
       </div>
