@@ -10,44 +10,62 @@
   <body>
     <div class="container">
       <h1>Expense Tracker</h1>
-      <div class="balance-box">
+      <div id="balance-box">
         <p>Your Balance</p>
-        <h2>$2,898.00</h2>
-        <div id="income-info">
+        <h2 id="balance-number">$2,898.00</h2>
+        <div class="info-box" id="income-info">
           <p>Income</p>
-          <span class="in-out-number">$4,938.00</span>
+          <span id="income-number">$4,938.00</span>
         </div>
-        <div id="expenses-info">
+        <div class="info-box" id="expense-info">
           <p>Expenses</p>
-          <span class="in-out-number">$4,938.00</span>
+          <span id="expense-number">$4,938.00</span>
         </div>
       </div>
       <div id="transactions">
-        <p>Transactions</p>
+        <p>Transactions:</p>
         <ul id="list-transactions">
-          <li class="item">
+          <li class="item expense">
             <span class="transacion-name">Buy Iphone 17 promax</span
-            ><span class="transaction-amount">$1,299.00</span>
+            ><span class="item-info-end"
+              ><span class="transaction-amount">$1,299.00</span
+              ><span class="delete-btn"></span
+            ></span>
           </li>
-          <li class="item">
+          <li class="item income">
             <span class="transacion-name">Buy Iphone 17 promax</span
-            ><span class="transaction-amount">$1,299.00</span>
+            ><span class="item-info-end"
+              ><span class="transaction-amount">$1,299.00</span
+              ><span class="delete-btn"></span
+            ></span>
           </li>
-          <li class="item">
+          <li class="item expense">
             <span class="transacion-name">Buy Iphone 17 promax</span
-            ><span class="transaction-amount">$1,299.00</span>
+            ><span class="item-info-end"
+              ><span class="transaction-amount">$1,299.00</span
+              ><span class="delete-btn"></span
+            ></span>
           </li>
-          <li class="item">
+          <li class="item income">
             <span class="transacion-name">Buy Iphone 17 promax</span
-            ><span class="transaction-amount">$1,299.00</span>
+            ><span class="item-info-end"
+              ><span class="transaction-amount">$1,299.00</span
+              ><span class="delete-btn"></span
+            ></span>
           </li>
-          <li class="item">
+          <li class="item expense">
             <span class="transacion-name">Buy Iphone 17 promax</span
-            ><span class="transaction-amount">$1,299.00</span>
+            ><span class="item-info-end"
+              ><span class="transaction-amount">$1,299.00</span
+              ><span class="delete-btn"></span
+            ></span>
           </li>
-          <li class="item">
+          <li class="item income">
             <span class="transacion-name">Buy Iphone 17 promax</span
-            ><span class="transaction-amount">$1,299.00</span>
+            ><span class="item-info-end"
+              ><span class="transaction-amount">$1,299.00</span
+              ><span class="delete-btn"></span
+            ></span>
           </li>
         </ul>
       </div>
@@ -77,8 +95,8 @@
           />
           <label for="expense">Expense</label>
           <input type="number" name="amount" id="amount" />
-          <button type="button" id="add-btn">Add Transaction</button>
         </form>
+        <button type="button" id="add-btn">Add Transaction</button>
       </div>
     </div>
   </body>
