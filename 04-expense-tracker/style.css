@@ -169,8 +169,7 @@ h1 {
   max-width: 45vw;
   width: 100%;
 }
-#transaction-input label {
-}
+
 #transaction-form input {
   border: 1px solid #cacaca;
   border-radius: 5px;
