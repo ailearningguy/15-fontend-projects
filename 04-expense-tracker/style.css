@@ -101,7 +101,8 @@ h1 {
   margin-top: 5px;
   padding: 5px 10px 5px 10px;
   border-radius: 10px;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, scale 0.2s ease;
+  scale: 100%;
 }
 .transaction-amount::after,
 #income-number::after,
@@ -124,6 +125,9 @@ h1 {
 }
 .item:hover .delete-btn {
   visibility: visible;
+}
+.hidden {
+  scale: 0;
 }
 .delete-btn {
   visibility: hidden;

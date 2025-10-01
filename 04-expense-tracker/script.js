@@ -20,12 +20,11 @@ function balanceCal() {
     } else {
       expenses += Number(item.amount);
     }
-    balance = income - expenses;
-    incomeNumber.textContent = income.toLocaleString("vi-VN");
-    expenseNumber.textContent = expenses.toLocaleString("vi-VN");
-    balanceNumber.textContent = balance.toLocaleString("vi-VN");
   });
-  console.log(balance);
+  balance = income - expenses;
+  incomeNumber.textContent = income.toLocaleString("vi-VN");
+  expenseNumber.textContent = expenses.toLocaleString("vi-VN");
+  balanceNumber.textContent = balance.toLocaleString("vi-VN");
 }
 function dataUpdateToLocalStorage() {
   localStorage.setItem("transactions", JSON.stringify(transactionsData));
@@ -47,9 +46,9 @@ function addButtonHandler(ev) {
     `);
   } else {
     const transRandID = () => Math.random().toString(36).substring(2);
-    const type = typeOfTrans;
-    const description = descriptionInput;
-    const amount = amountInput;
+    // const type = typeOfTrans;
+    // const description = descriptionInput;
+    // const amount = amountInput;
 
     const dataItem = {
       transID: transRandID(),
@@ -61,7 +60,7 @@ function addButtonHandler(ev) {
     dataUpdateToLocalStorage();
 
     const list = document.createElement("li");
-    list.classList.add("item", dataItem.type);
+    list.classList.add("item", "hidden", dataItem.type);
     list.setAttribute("data-trans-id", dataItem.transID);
     list.innerHTML = `<span class="transaction-name">${
       dataItem.description
@@ -73,7 +72,12 @@ function addButtonHandler(ev) {
               ><span class="delete-btn"></span
             ></span>`;
     listTransactions.insertBefore(list, listTransactions.firstChild); // Chèn list mới vào đầu danh sách
-
+    console.log(listTransactions.firstChild);
+    setTimeout(
+      () => listTransactions.firstChild.classList.toggle("hidden"),
+      10
+    );
+    listTransactions.firstChild.addEventListener("click", deleteBtnHandler);
     transactionForm.reset();
     balanceCal(); // Reset form khi nhấn nút Add Transaction
   }
@@ -111,16 +115,22 @@ function inputFormat(e) {
   e.target.value = formatted;
 }
 
+function removeElement(e) {
+  e.target.style.display = "none";
+}
 function deleteBtnHandler(e) {
-  const deleteID =
-    e.target.parentElement.parentElement.getAttribute("data-trans-id");
+  const deleteElement = e.target.parentElement.parentElement;
+  const deleteID = deleteElement.getAttribute("data-trans-id");
   const itemIndex = transactionsData.findIndex(
     (obj) => obj.transID === deleteID
   );
   console.log(itemIndex);
   transactionsData.splice(itemIndex, 1);
   dataUpdateToLocalStorage();
-  e.target.parentElement.parentElement.remove();
+
+  deleteElement.classList.add("hidden");
+  setTimeout(() => deleteElement.remove(), 300);
+
   // transactionRender();
   balanceCal();
 }
