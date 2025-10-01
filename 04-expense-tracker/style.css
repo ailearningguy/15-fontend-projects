@@ -24,6 +24,7 @@ body {
   border-radius: 16px;
   box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.5);
   min-height: 90vh;
+  max-height: 99vh;
   max-width: 90%;
 }
 h1 {
@@ -137,6 +138,12 @@ h1 {
 .expense {
   background-color: rgb(232, 247, 232);
   border-right: 5px solid green;
+}
+#list-transactions {
+  height: 50vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding-right: 15px;
 }
 
 #transaction-input {
