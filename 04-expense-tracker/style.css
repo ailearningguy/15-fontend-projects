@@ -139,11 +139,11 @@ h1 {
   cursor: pointer;
 }
 
-.income {
+.expense {
   background-color: rgb(250, 235, 235);
   border-right: 5px solid red;
 }
-.expense {
+.income {
   background-color: rgb(232, 247, 232);
   border-right: 5px solid green;
 }

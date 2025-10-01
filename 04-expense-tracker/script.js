@@ -27,7 +27,9 @@ function balanceCal() {
   });
   console.log(balance);
 }
-
+function dataUpdateToLocalStorage() {
+  localStorage.setItem("transactions", JSON.stringify(transactionsData));
+}
 function addButtonHandler(ev) {
   let typeOfTrans = document.querySelector(
     'input[name="type-transaction"]:checked'
@@ -56,7 +58,7 @@ function addButtonHandler(ev) {
       amount: Number(amountInput.replace(/[^\d]/g, "")),
     };
     transactionsData.push(dataItem);
-    localStorage.setItem("transactions", JSON.stringify(transactionsData));
+    dataUpdateToLocalStorage();
 
     const list = document.createElement("li");
     list.classList.add("item", dataItem.type);
@@ -78,6 +80,7 @@ function addButtonHandler(ev) {
 }
 
 function transactionRender() {
+  listTransactions.innerHTML = "";
   transactionsData
     .slice()
     .reverse()
@@ -93,6 +96,10 @@ function transactionRender() {
               ><span class="delete-btn"></span
             ></span>`;
       listTransactions.appendChild(list);
+      const deleteBtn = document.querySelectorAll(".delete-btn");
+      deleteBtn.forEach((elm) => {
+        elm.addEventListener("click", deleteBtnHandler);
+      });
     });
 }
 
@@ -104,7 +111,23 @@ function inputFormat(e) {
   e.target.value = formatted;
 }
 
+function deleteBtnHandler(e) {
+  const deleteID =
+    e.target.parentElement.parentElement.getAttribute("data-trans-id");
+  const itemIndex = transactionsData.findIndex(
+    (obj) => obj.transID === deleteID
+  );
+  console.log(itemIndex);
+  transactionsData.splice(itemIndex, 1);
+  dataUpdateToLocalStorage();
+  e.target.parentElement.parentElement.remove();
+  // transactionRender();
+  balanceCal();
+}
+
 amountNumber.addEventListener("input", inputFormat);
 addBtn.addEventListener("click", addButtonHandler);
+
 transactionRender();
+
 balanceCal();
