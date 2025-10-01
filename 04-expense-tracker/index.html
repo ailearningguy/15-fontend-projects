@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Expense Tracker</h1>
+      <div id="balance-box">
+        <p>Your Balance</p>
+        <h2 id="balance-number">0</h2>
+        <div class="info-box" id="income-info">
+          <p>Income</p>
+          <span id="income-number">0</span>
+        </div>
+        <div class="info-box" id="expense-info">
+          <p>Expenses</p>
+          <span id="expense-number">0</span>
+        </div>
+      </div>
+      <div id="transactions">
+        <p>Transactions:</p>
+        <ul id="list-transactions">
+          <!-- <li class="item expense">
+            <span class="transacion-name">Buy Iphone 17 promax</span
+            ><span class="item-info-end"
+              ><span class="transaction-amount">$1,299.00</span
+              ><span class="delete-btn"></span
+            ></span>
+          </li> -->
+        </ul>
+      </div>
+      <div id="transaction-input">
+        <form id="transaction-form">
+          <p>Add Transaction</p>
+          <label for="description">Description</label>
+          <input
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Enter description..."
+          />
+          <label for="amount">Amount</label>
+          <input
+            type="text"
+            name="amount"
+            inputmode="decimal"
+            id="amount"
+            placeholder="Enter number..."
+          />
+          <div id="type-trans">
+            <span
+              ><input
+                type="radio"
+                name="type-transaction"
+                id="income"
+                value="income"
+              />
+              <label for="income">Income</label></span
+            >
+            <span
+              ><input
+                type="radio"
+                name="type-transaction"
+                id="expense"
+                value="expense"
+              />
+              <label for="expense">Expense</label></span
+            >
+          </div>
+        </form>
+        <button type="button" id="add-btn">Add Transaction</button>
+      </div>
+    </div>
+  </body>
+</html>
